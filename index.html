@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Planejador de Metas</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="icone">💰</div>
+
+        <h1>Planejador de Metas</h1>
+
+        <p class="descricao">
+            Descubra em quanto tempo você consegue juntar dinheiro
+            para alcançar sua meta.
+        </p>
+
+
+        <!-- META -->
+
+        <div class="campo">
+
+            <label for="meta">
+                Qual é a sua meta?
+            </label>
+
+            <div class="input-dinheiro">
+
+                <span>R$</span>
+
+                <input
+                    type="number"
+                    id="meta"
+                    value="20000"
+                    min="1"
+                    step="0.01"
+                    placeholder="Ex: 20000"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- VALOR MENSAL -->
+
+        <div class="campo">
+
+            <label for="mensal">
+                Quanto você vai guardar por mês?
+            </label>
+
+            <div class="input-dinheiro">
+
+                <span>R$</span>
+
+                <input
+                    type="number"
+                    id="mensal"
+                    value="400"
+                    min="1"
+                    step="0.01"
+                    placeholder="Ex: 400"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- MÊS E ANO -->
+
+        <div class="campo">
+
+            <label for="inicio">
+                Em qual mês e ano você vai começar?
+            </label>
+
+            <input
+                type="month"
+                id="inicio"
+            >
+
+        </div>
+
+
+        <!-- BOTÃO -->
+
+        <button id="btnGerar">
+            📊 Gerar Planilha Excel
+        </button>
+
+
+        <!-- RESULTADO -->
+
+        <div id="resultado"></div>
+
+    </div>
+
+
+    <!-- Biblioteca para criar Excel -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
