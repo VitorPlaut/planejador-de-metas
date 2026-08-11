@@ -1,118 +1,380 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Planejador de Metas</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <div class="card">
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
 
-        <div class="icone">💰</div>
+    <header class="topo">
 
-        <h1>Planejador de Metas</h1>
-
-        <p class="descricao">
-            Descubra em quanto tempo você consegue juntar dinheiro
-            para alcançar sua meta.
-        </p>
-
-
-        <!-- META -->
-
-        <div class="campo">
-
-            <label for="meta">
-                Qual é a sua meta?
-            </label>
-
-            <div class="input-dinheiro">
-
-                <span>R$</span>
-
-                <input
-                    type="number"
-                    id="meta"
-                    value="20000"
-                    min="1"
-                    step="0.01"
-                    placeholder="Ex: 20000"
-                >
-
-            </div>
-
+        <div class="logo">
+            💰 Planejador de Metas
         </div>
 
-
-        <!-- VALOR MENSAL -->
-
-        <div class="campo">
-
-            <label for="mensal">
-                Quanto você vai guardar por mês?
-            </label>
-
-            <div class="input-dinheiro">
-
-                <span>R$</span>
-
-                <input
-                    type="number"
-                    id="mensal"
-                    value="400"
-                    min="1"
-                    step="0.01"
-                    placeholder="Ex: 400"
-                >
-
-            </div>
-
-        </div>
-
-
-        <!-- MÊS E ANO -->
-
-        <div class="campo">
-
-            <label for="inicio">
-                Em qual mês e ano você vai começar?
-            </label>
-
-            <input
-                type="month"
-                id="inicio"
-            >
-
-        </div>
-
-
-        <!-- BOTÃO -->
-
-        <button id="btnGerar">
-            📊 Gerar Planilha Excel
+        <button
+            id="btnTema"
+            class="btn-tema"
+            title="Alterar tema"
+        >
+            🌙
         </button>
 
-
-        <!-- RESULTADO -->
-
-        <div id="resultado"></div>
-
-    </div>
+    </header>
 
 
-    <!-- Biblioteca para criar Excel -->
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- =========================
+             FORMULÁRIO
+        ========================== -->
+
+        <section class="card formulario">
+
+            <div class="icone">
+                🎯
+            </div>
+
+            <h1>
+                Planeje sua meta
+            </h1>
+
+            <p class="descricao">
+                Descubra quanto tempo você precisa
+                para alcançar seu objetivo.
+            </p>
+
+
+            <!-- META -->
+
+            <div class="campo">
+
+                <label for="meta">
+                    Valor da meta
+                </label>
+
+                <div class="input-dinheiro">
+
+                    <span>R$</span>
+
+                    <input
+                        type="number"
+                        id="meta"
+                        min="1"
+                        step="0.01"
+                        placeholder="Ex: 20000"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- VALOR MENSAL -->
+
+            <div class="campo">
+
+                <label for="mensal">
+                    Quanto vai guardar por mês?
+                </label>
+
+                <div class="input-dinheiro">
+
+                    <span>R$</span>
+
+                    <input
+                        type="number"
+                        id="mensal"
+                        min="1"
+                        step="0.01"
+                        placeholder="Ex: 400"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- DATA -->
+
+            <div class="campo">
+
+                <label for="inicio">
+                    Quando você vai começar?
+                </label>
+
+                <input
+                    type="month"
+                    id="inicio"
+                >
+
+            </div>
+
+
+            <!-- NOME DA META -->
+
+            <div class="campo">
+
+                <label for="nomeMeta">
+                    Nome da meta
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeMeta"
+                    placeholder="Ex: Minha moto"
+                    maxlength="40"
+                >
+
+            </div>
+
+
+            <!-- BOTÕES -->
+
+            <div class="botoes">
+
+                <button
+                    id="btnCalcular"
+                    class="btn-principal"
+                >
+                    📊 Calcular minha meta
+                </button>
+
+                <button
+                    id="btnSalvar"
+                    class="btn-secundario"
+                >
+                    💾 Salvar meta
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESULTADO
+        ========================== -->
+
+        <section
+            id="resultado"
+            class="resultado"
+        >
+
+            <!-- RESUMO -->
+
+            <div class="cabecalho-resultado">
+
+                <div>
+
+                    <span class="pequeno">
+                        SUA META
+                    </span>
+
+                    <h2 id="tituloResultado">
+                        Minha Meta
+                    </h2>
+
+                </div>
+
+                <div class="status">
+                    🎯 Planejamento
+                </div>
+
+            </div>
+
+
+            <!-- CARDS -->
+
+            <div class="resumo-grid">
+
+
+                <div class="resumo-card">
+
+                    <span>
+                        💰 Meta
+                    </span>
+
+                    <strong id="valorMeta">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+                <div class="resumo-card">
+
+                    <span>
+                        💵 Por mês
+                    </span>
+
+                    <strong id="valorMensal">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+                <div class="resumo-card">
+
+                    <span>
+                        📅 Tempo
+                    </span>
+
+                    <strong id="tempoMeta">
+                        0 meses
+                    </strong>
+
+                </div>
+
+
+                <div class="resumo-card">
+
+                    <span>
+                        🏁 Previsão
+                    </span>
+
+                    <strong id="dataFinal">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESSO -->
+
+            <div class="progresso-container">
+
+                <div class="progresso-info">
+
+                    <span>
+                        Progresso
+                    </span>
+
+                    <strong id="porcentagem">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="barra">
+
+                    <div
+                        id="barraProgresso"
+                        class="barra-preenchida"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRÁFICO -->
+
+            <div class="grafico-card">
+
+                <h3>
+                    📈 Evolução da sua economia
+                </h3>
+
+                <canvas id="grafico"></canvas>
+
+            </div>
+
+
+            <!-- BOTÃO EXCEL -->
+
+            <button
+                id="btnExcel"
+                class="btn-excel"
+            >
+                📥 Baixar planilha Excel
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             METAS SALVAS
+        ========================== -->
+
+        <section
+            id="metasSalvas"
+            class="card metas-salvas"
+        >
+
+            <div class="titulo-secao">
+
+                <div>
+
+                    <h2>
+                        💾 Minhas metas
+                    </h2>
+
+                    <p>
+                        Metas salvas neste navegador
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div id="listaMetas">
+
+                <div class="sem-metas">
+                    Você ainda não possui metas salvas.
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         BIBLIOTECAS
+    ========================== -->
+
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- SheetJS -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
 
-    <!-- JavaScript -->
+    <!-- JavaScript do projeto -->
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

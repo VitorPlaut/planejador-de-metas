@@ -1,307 +1,933 @@
+/* =========================================
+PLANEJADOR DE METAS
+CSS MODERNO
+========================================= */
+
 * {
     box-sizing: border-box;
 }
 
+:root {
+    --bg: #07111f;
+    --card: #0d1b2e;
+    --card-2: #10233b;
+    --input: #13263e;
+    --border: #243b55;
+
+    --text: #f8fafc;
+    --muted: #94a3b8;
+
+    --blue: #38bdf8;
+    --blue-dark: #0284c7;
+
+    --green: #22c55e;
+    --green-dark: #16a34a;
+
+    --red: #ef4444;
+
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================
+TEMA CLARO
+========================================= */
+
+body.claro {
+--bg: #eef4f8;
+--card: #ffffff;
+--card-2: #f8fafc;
+--input: #f1f5f9;
+--border: #dbe4ee;
+
+--text: #0f172a;
+--muted: #64748b;
+
+--shadow: 0 15px 40px rgba(15, 23, 42, 0.10);
+
+}
+
+/* =========================================
+BODY
+========================================= */
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+margin: 0;
+min-height: 100vh;
 
-    background:
-        radial-gradient(
-            circle at top,
-            #1e3a5f 0%,
-            #0f172a 45%,
-            #020617 100%
-        );
+font-family: Arial, Helvetica, sans-serif;
 
-    color: white;
+color: var(--text);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+background:
+    radial-gradient(
+        circle at top left,
+        rgba(14, 165, 233, 0.15),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(34, 197, 94, 0.08),
+        transparent 30%
+    ),
+    var(--bg);
 
-    min-height: 100vh;
+transition: 0.3s ease;
 
-    margin: 0;
-
-    padding: 20px;
 }
 
+/* =========================================
+TOPO
+========================================= */
 
-/* =========================
-   CARD
-========================= */
+.topo {
+width: 100%;
+height: 70px;
 
-.card {
-    width: 100%;
-    max-width: 500px;
+padding: 0 5%;
 
-    background: #1e293b;
+display: flex;
+align-items: center;
+justify-content: space-between;
 
-    padding: 35px;
+position: sticky;
+top: 0;
 
-    border-radius: 20px;
+z-index: 100;
 
-    border: 1px solid #334155;
+background: rgba(7, 17, 31, 0.85);
 
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.5);
+border-bottom: 1px solid var(--border);
+
+backdrop-filter: blur(12px);
+
 }
 
+body.claro .topo {
+background: rgba(255, 255, 255, 0.88);
+}
 
-/* =========================
-   ÍCONE
-========================= */
+/* =========================================
+LOGO
+========================================= */
+
+.logo {
+font-size: 19px;
+font-weight: bold;
+
+color: var(--text);
+
+}
+
+/* =========================================
+BOTÃO TEMA
+========================================= */
+
+.btn-tema {
+width: 42px;
+height: 42px;
+
+border: 1px solid var(--border);
+border-radius: 10px;
+
+background: var(--card);
+
+color: var(--text);
+
+font-size: 18px;
+
+cursor: pointer;
+
+transition: 0.2s;
+
+}
+
+.btn-tema {
+border-color: var(--blue);
+transform: scale(1.05);
+}
+
+/* =========================================
+CONTAINER
+========================================= */
+
+.container {
+width: 100%;
+max-width: 1050px;
+
+margin: 0 auto;
+
+padding: 45px 20px 70px;
+
+}
+
+/* =========================================
+CARDS
+========================================= */
+
+.card,
+.resultado {
+background: var(--card);
+
+border: 1px solid var(--border);
+
+border-radius: 18px;
+
+box-shadow: var(--shadow);
+
+}
+
+/* =========================================
+FORMULÁRIO
+========================================= */
+
+.formulario {
+max-width: 620px;
+
+margin: 0 auto 30px;
+
+padding: 35px;
+
+}
+
+/* =========================================
+ÍCONE
+========================================= */
 
 .icone {
-    width: 60px;
-    height: 60px;
+width: 60px;
+height: 60px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+display: flex;
+align-items: center;
+justify-content: center;
 
-    background: #0ea5e9;
+margin-bottom: 20px;
 
-    border-radius: 15px;
+border-radius: 15px;
 
-    font-size: 30px;
+background:
+    linear-gradient(
+        135deg,
+        var(--blue-dark),
+        #2563eb
+    );
 
-    margin-bottom: 20px;
+font-size: 28px;
 
-    box-shadow:
-        0 8px 20px rgba(14, 165, 233, 0.25);
+box-shadow:
+    0 10px 25px rgba(14, 165, 233, 0.25);
+
 }
 
-
-/* =========================
-   TÍTULO
-========================= */
+/* =========================================
+TÍTULO
+========================================= */
 
 h1 {
-    margin: 0;
+margin: 0;
 
-    font-size: 32px;
+font-size: 34px;
 
-    color: #f8fafc;
+line-height: 1.2;
+
+color: var(--text);
+
 }
-
-
-/* =========================
-   DESCRIÇÃO
-========================= */
 
 .descricao {
-    margin-top: 10px;
+margin: 10px 0 30px;
 
-    margin-bottom: 30px;
+color: var(--muted);
 
-    color: #94a3b8;
+line-height: 1.6;
 
-    line-height: 1.6;
-
-    font-size: 15px;
 }
 
-
-/* =========================
-   CAMPOS
-========================= */
+/* =========================================
+CAMPOS
+========================================= */
 
 .campo {
-    margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 label {
-    display: block;
+display: block;
 
-    margin-bottom: 8px;
+margin-bottom: 8px;
 
-    font-size: 14px;
+color: var(--text);
 
-    font-weight: bold;
+font-size: 14px;
 
-    color: #e2e8f0;
+font-weight: bold;
+
 }
 
+/* =========================================
+INPUT
+========================================= */
 
-/* =========================
-   INPUT DE DINHEIRO
-========================= */
+input {
+width: 100%;
+height: 50px;
+
+padding: 0 14px;
+
+border: 1px solid var(--border);
+
+border-radius: 10px;
+
+outline: none;
+
+background: var(--input);
+
+color: var(--text);
+
+font-size: 16px;
+
+transition: 0.2s;
+
+}
+
+input::placeholder {
+color: var(--muted);
+}
+
+input {
+border-color: var(--blue);
+
+box-shadow:
+    0 0 0 3px
+    rgba(56, 189, 248, 0.12);
+
+}
+
+/* =========================================
+INPUT DINHEIRO
+========================================= */
 
 .input-dinheiro {
-    display: flex;
-    align-items: center;
+display: flex;
+align-items: center;
 
-    background: #334155;
+height: 50px;
 
-    border: 1px solid #475569;
+border: 1px solid var(--border);
 
-    border-radius: 10px;
+border-radius: 10px;
 
-    overflow: hidden;
+background: var(--input);
 
-    transition: 0.2s;
+overflow: hidden;
+
 }
 
 .input-dinheiro span {
-    padding-left: 14px;
+padding-left: 14px;
 
-    color: #94a3b8;
+color: var(--blue);
 
-    font-weight: bold;
+font-weight: bold;
+
 }
 
 .input-dinheiro input {
-    border: none !important;
+height: 48px;
 
-    background: transparent !important;
+border: none;
 
-    box-shadow: none !important;
+background: transparent;
 
-    border-radius: 0 !important;
+box-shadow: none;
 
-    margin: 0 !important;
 }
 
+/* =========================================
+BOTÕES
+========================================= */
 
-/* =========================
-   INPUTS
-========================= */
+.botoes {
+display: grid;
 
-input {
-    width: 100%;
+grid-template-columns: 1.6fr 1fr;
 
-    padding: 14px;
+gap: 10px;
 
-    background: #334155;
+margin-top: 25px;
 
-    color: white;
-
-    border: 1px solid #475569;
-
-    border-radius: 10px;
-
-    font-size: 16px;
-
-    outline: none;
-
-    transition: 0.2s;
 }
-
-input:focus {
-    border-color: #38bdf8;
-
-    box-shadow:
-        0 0 0 3px rgba(56, 189, 248, 0.12);
-}
-
-.input-dinheiro:focus-within {
-    border-color: #38bdf8;
-
-    box-shadow:
-        0 0 0 3px rgba(56, 189, 248, 0.12);
-}
-
-
-/* =========================
-   BOTÃO
-========================= */
 
 button {
-    width: 100%;
+font-family: Arial, Helvetica, sans-serif;
 
-    padding: 16px;
+cursor: pointer;
 
-    margin-top: 10px;
+transition: 0.2s;
 
-    border: none;
-
-    border-radius: 10px;
-
-    background: #22c55e;
-
-    color: white;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.2s;
 }
 
-button:hover {
-    background: #16a34a;
+/* =========================================
+BOTÃO PRINCIPAL
+========================================= */
 
-    transform: translateY(-2px);
+.btn-principal {
+min-height: 52px;
 
-    box-shadow:
-        0 10px 25px rgba(34, 197, 94, 0.25);
+border: none;
+
+border-radius: 10px;
+
+background:
+    linear-gradient(
+        135deg,
+        var(--green),
+        var(--green-dark)
+    );
+
+color: white;
+
+font-size: 15px;
+
+font-weight: bold;
+
 }
 
-button:active {
+.btn-principal {
+transform: translateY(-2px);
+
+box-shadow:
+    0 10px 25px
+    rgba(34, 197, 94, 0.20);
+
+}
+
+/* =========================================
+BOTÃO SALVAR
+========================================= */
+
+.btn-secundario {
+min-height: 52px;
+
+border: 1px solid var(--border);
+
+border-radius: 10px;
+
+background: var(--card-2);
+
+color: var(--text);
+
+font-size: 14px;
+
+font-weight: bold;
+
+}
+
+.btn-secundario {
+border-color: var(--blue);
+
+color: var(--blue);
+
+transform: translateY(-2px);
+
+}
+
+/* =========================================
+RESULTADO
+========================================= */
+
+.resultado {
+display: none;
+
+padding: 30px;
+
+margin-bottom: 30px;
+
+animation: aparecer 0.4s ease;
+
+}
+
+@keyframes aparecer {
+from {
+opacity: 0;
+transform: translateY(15px);
+}
+
+to {
+    opacity: 1;
     transform: translateY(0);
 }
 
-
-/* =========================
-   RESULTADO
-========================= */
-
-#resultado {
-    display: none;
-
-    margin-top: 25px;
-
-    padding: 18px;
-
-    background: #0f172a;
-
-    border: 1px solid #334155;
-
-    border-radius: 10px;
-
-    color: #cbd5e1;
-
-    font-size: 14px;
-
-    line-height: 1.7;
 }
 
-#resultado strong {
-    color: #38bdf8;
+/* =========================================
+CABEÇALHO DO RESULTADO
+========================================= */
+
+.cabecalho-resultado {
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+gap: 15px;
+
+margin-bottom: 25px;
+
 }
 
+.pequeno {
+color: var(--blue);
 
-/* =========================
-   CELULAR
-========================= */
+font-size: 11px;
 
-@media (max-width: 600px) {
+font-weight: bold;
 
-    body {
-        padding: 15px;
-    }
+letter-spacing: 1px;
 
-    .card {
-        padding: 25px;
+}
 
-        border-radius: 16px;
-    }
+h2 {
+margin: 5px 0 0;
 
-    h1 {
-        font-size: 27px;
-    }
+font-size: 24px;
 
-    .icone {
-        width: 55px;
-        height: 55px;
+}
 
-        font-size: 26px;
-    }
+.status {
+padding: 8px 13px;
 
-    button {
-        font-size: 16px;
-    }
+border-radius: 20px;
+
+background:
+    rgba(34, 197, 94, 0.10);
+
+border:
+    1px solid
+    rgba(34, 197, 94, 0.20);
+
+color: var(--green);
+
+font-size: 12px;
+
+font-weight: bold;
+
+}
+
+/* =========================================
+RESUMO
+========================================= */
+
+.resumo-grid {
+display: grid;
+
+grid-template-columns:
+    repeat(4, 1fr);
+
+gap: 12px;
+
+}
+
+.resumo-card {
+padding: 18px;
+
+border: 1px solid var(--border);
+
+border-radius: 12px;
+
+background: var(--input);
+
+transition: 0.2s;
+
+}
+
+.resumo-card {
+transform: translateY(-3px);
+
+border-color: var(--blue);
+
+}
+
+.resumo-card span {
+display: block;
+
+margin-bottom: 8px;
+
+color: var(--muted);
+
+font-size: 12px;
+
+}
+
+.resumo-card strong {
+font-size: 17px;
+
+color: var(--text);
+
+}
+
+/* =========================================
+PROGRESSO
+========================================= */
+
+.progresso-container {
+margin-top: 25px;
+
+padding: 18px;
+
+border: 1px solid var(--border);
+
+border-radius: 12px;
+
+background: var(--card-2);
+
+}
+
+.progresso-info {
+display: flex;
+
+justify-content: space-between;
+
+margin-bottom: 10px;
+
+font-size: 13px;
+
+}
+
+.progresso-info strong {
+color: var(--green);
+}
+
+.barra {
+width: 100%;
+height: 10px;
+
+background: var(--input);
+
+border-radius: 20px;
+
+overflow: hidden;
+
+}
+
+.barra-preenchida {
+width: 0;
+height: 100%;
+
+border-radius: 20px;
+
+background:
+    linear-gradient(
+        90deg,
+        var(--green),
+        var(--blue)
+    );
+
+transition: width 0.8s ease;
+
+}
+
+/* =========================================
+GRÁFICO
+========================================= */
+
+.grafico-card {
+margin-top: 25px;
+
+padding: 20px;
+
+border: 1px solid var(--border);
+
+border-radius: 12px;
+
+background: var(--card-2);
+
+}
+
+.grafico-card h3 {
+margin: 0 0 20px;
+
+font-size: 16px;
+
+}
+
+#grafico {
+width: 100% !important;
+
+height: 330px !important;
+
+}
+
+/* =========================================
+EXCEL
+========================================= */
+
+.btn-excel {
+width: 100%;
+
+min-height: 52px;
+
+margin-top: 18px;
+
+border:
+    1px solid
+    rgba(34, 197, 94, 0.25);
+
+border-radius: 10px;
+
+background:
+    rgba(34, 197, 94, 0.10);
+
+color: var(--green);
+
+font-size: 15px;
+
+font-weight: bold;
+
+}
+
+.btn-excel {
+background: var(--green);
+
+color: white;
+
+transform: translateY(-2px);
+
+}
+
+/* =========================================
+METAS SALVAS
+========================================= */
+
+.metas-salvas {
+padding: 30px;
+}
+
+.titulo-secao h2 {
+margin: 0;
+
+font-size: 21px;
+
+}
+
+.titulo-secao p {
+margin: 6px 0 20px;
+
+color: var(--muted);
+
+font-size: 13px;
+
+}
+
+/* =========================================
+META SALVA
+========================================= */
+
+.meta-item {
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+gap: 20px;
+
+padding: 16px;
+
+margin-top: 10px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 12px;
+
+background: var(--input);
+
+transition: 0.2s;
+
+}
+
+.meta-item {
+border-color: var(--blue);
+
+transform: translateX(3px);
+
+}
+
+.meta-info {
+min-width: 0;
+}
+
+.meta-info strong {
+display: block;
+
+margin-bottom: 5px;
+
+color: var(--text);
+
+font-size: 14px;
+
+}
+
+.meta-info span {
+color: var(--muted);
+
+font-size: 12px;
+
+}
+
+.meta-acoes {
+display: flex;
+
+gap: 8px;
+
+flex-shrink: 0;
+
+}
+
+.btn-carregar,
+.btn-excluir {
+padding: 9px 12px;
+
+border: none;
+
+border-radius: 8px;
+
+font-size: 12px;
+
+font-weight: bold;
+
+}
+
+.btn-carregar {
+background:
+rgba(56, 189, 248, 0.10);
+
+color: var(--blue);
+
+}
+
+.btn-carregar {
+background: var(--blue);
+
+color: white;
+
+}
+
+.btn-excluir {
+background:
+rgba(239, 68, 68, 0.10);
+
+color: var(--red);
+
+}
+
+.btn-excluir {
+background: var(--red);
+
+color: white;
+
+}
+
+.sem-metas {
+padding: 25px;
+
+border:
+    1px dashed var(--border);
+
+border-radius: 10px;
+
+text-align: center;
+
+color: var(--muted);
+
+font-size: 13px;
+
+}
+
+/* =========================================
+RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 850px) {
+
+.resumo-grid {
+    grid-template-columns:
+        repeat(2, 1fr);
+}
+
+}
+
+@media (max-width: 650px) {
+
+.topo {
+    height: 65px;
+
+    padding: 0 18px;
+}
+
+.logo {
+    font-size: 16px;
+}
+
+.container {
+    padding:
+        30px 14px 50px;
+}
+
+.formulario,
+.resultado,
+.metas-salvas {
+    padding: 23px 18px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.botoes {
+    grid-template-columns: 1fr;
+}
+
+.cabecalho-resultado {
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.meta-item {
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.meta-acoes {
+    width: 100%;
+}
+
+.btn-carregar,
+.btn-excluir {
+    flex: 1;
+}
+
+}
+
+@media (max-width: 430px) {
+
+.resumo-grid {
+    grid-template-columns: 1fr;
+}
+
+.icone {
+    width: 55px;
+    height: 55px;
+
+    font-size: 25px;
+}
+
+#grafico {
+    height: 270px !important;
+}
+
 }
